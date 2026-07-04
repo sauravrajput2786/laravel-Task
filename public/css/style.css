@@ -1,0 +1,351 @@
+/* ==========================================================================
+   Tenant SaaS - minimal styles
+   Plain CSS only, no framework.
+   ========================================================================== */
+
+:root {
+    --color-bg: #fafafa;
+    --color-surface: #ffffff;
+    --color-primary: #111827;
+    --color-primary-hover: #000000;
+    --color-danger: #b91c1c;
+    --color-danger-bg: #fef2f2;
+    --color-success: #15803d;
+    --color-success-bg: #f0fdf4;
+    --color-text: #1f2937;
+    --color-muted: #6b7280;
+    --color-border: #e5e7eb;
+    --radius: 8px;
+    --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: var(--font);
+    background: var(--color-bg);
+    color: var(--color-text);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+}
+
+a {
+    color: var(--color-primary);
+}
+
+code {
+    background: #f3f4f6;
+    padding: 1px 5px;
+    border-radius: 4px;
+    font-size: 0.9em;
+}
+
+/* Topbar ------------------------------------------------------------- */
+
+.topbar {
+    border-bottom: 1px solid var(--color-border);
+}
+
+.topbar__inner {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 16px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.topbar__brand {
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.topbar__logout-form {
+    margin: 0;
+}
+
+/* Layout --------------------------------------------------------------- */
+
+.page {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 56px 24px;
+}
+
+.auth-wrapper,
+.dashboard,
+.error-page {
+    display: flex;
+    justify-content: center;
+}
+
+/* Card ------------------------------------------------------------------ */
+
+.card {
+    width: 100%;
+    max-width: 400px;
+    padding: 8px 0;
+}
+
+.dashboard .card {
+    max-width: 480px;
+}
+
+.card__header h1 {
+    margin: 0 0 4px;
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.muted {
+    color: var(--color-muted);
+    font-size: 0.9rem;
+}
+
+.muted.small {
+    font-size: 0.8rem;
+    margin-top: 24px;
+}
+
+/* Forms ------------------------------------------------------------------ */
+
+.form-group {
+    margin-bottom: 16px;
+}
+
+label {
+    display: block;
+    font-weight: 500;
+    font-size: 0.85rem;
+    margin-bottom: 5px;
+    color: var(--color-text);
+}
+
+.form-control {
+    width: 100%;
+    padding: 9px 12px;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    font-size: 0.95rem;
+    background: var(--color-surface);
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: var(--color-primary);
+}
+
+.form-control.is-invalid {
+    border-color: var(--color-danger);
+}
+
+.field-error {
+    display: block;
+    color: var(--color-danger);
+    font-size: 0.8rem;
+    margin-top: 4px;
+}
+
+/* Buttons ----------------------------------------------------------------- */
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    border: 1px solid transparent;
+    border-radius: var(--radius);
+    padding: 9px 16px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.btn--primary {
+    background: var(--color-primary);
+    color: #fff;
+}
+
+.btn--primary:hover:not(:disabled) {
+    background: var(--color-primary-hover);
+}
+
+.btn--danger {
+    background: transparent;
+    color: var(--color-danger);
+    border-color: var(--color-border);
+}
+
+.btn--danger:hover {
+    background: var(--color-danger-bg);
+}
+
+.btn--ghost {
+    background: transparent;
+    color: var(--color-text);
+    border-color: var(--color-border);
+}
+
+.btn--block {
+    width: 100%;
+}
+
+.btn--small {
+    padding: 6px 12px;
+    font-size: 0.82rem;
+}
+
+.btn-loader {
+    width: 14px;
+    height: 14px;
+    border: 2px solid rgba(255, 255, 255, 0.4);
+    border-top-color: #fff;
+    border-radius: 50%;
+    animation: spin 700ms linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Alerts -------------------------------------------------------------- */
+
+.alert {
+    border-radius: var(--radius);
+    padding: 10px 14px;
+    margin-bottom: 18px;
+    font-size: 0.85rem;
+    border: 1px solid transparent;
+}
+
+.alert ul {
+    margin: 4px 0 0;
+    padding-left: 18px;
+}
+
+.alert--error {
+    background: var(--color-danger-bg);
+    color: var(--color-danger);
+    border-color: #fecaca;
+}
+
+.alert--success {
+    background: var(--color-success-bg);
+    color: var(--color-success);
+    border-color: #bbf7d0;
+}
+
+/* Toasts ---------------------------------------------------- */
+
+.toast-container {
+    position: fixed;
+    top: 16px;
+    right: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    z-index: 1000;
+}
+
+.toast {
+    padding: 10px 14px;
+    border-radius: var(--radius);
+    color: #fff;
+    font-size: 0.85rem;
+}
+
+.toast--error { background: var(--color-danger); }
+.toast--success { background: var(--color-success); }
+
+/* Dashboard detail list ------------------------------------------------- */
+
+.detail-list {
+    margin: 20px 0;
+}
+
+.detail-list__row {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--color-border);
+    font-size: 0.9rem;
+}
+
+.detail-list__row dt {
+    color: var(--color-muted);
+    flex-shrink: 0;
+}
+
+.detail-list__row dd {
+    margin: 0;
+    text-align: right;
+    word-break: break-all;
+}
+
+.badge {
+    display: inline-block;
+    background: #f3f4f6;
+    color: var(--color-text);
+    padding: 2px 8px;
+    border-radius: 999px;
+    font-weight: 500;
+    font-size: 0.75rem;
+}
+
+.token-value {
+    display: block;
+    word-break: break-all;
+    background: #f9fafb;
+    border: 1px solid var(--color-border);
+    padding: 8px 10px;
+    border-radius: var(--radius);
+    font-size: 0.8rem;
+}
+
+.dashboard__logout {
+    margin-top: 4px;
+}
+
+/* Error pages ------------------------------------------------------------ */
+
+.error-card {
+    text-align: center;
+}
+
+.error-code {
+    font-size: 3rem;
+    margin: 0;
+    font-weight: 600;
+}
+
+.error-message {
+    color: var(--color-muted);
+    margin: 10px 0 20px;
+    font-size: 0.9rem;
+}
+
+/* Responsive -------------------------------------------------------------- */
+
+@media (max-width: 480px) {
+    .page {
+        padding: 32px 16px;
+    }
+
+    .detail-list__row {
+        flex-direction: column;
+        gap: 2px;
+    }
+
+    .detail-list__row dd {
+        text-align: left;
+    }
+}
